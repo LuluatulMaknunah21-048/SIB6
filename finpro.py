@@ -1,23 +1,21 @@
 import streamlit as st
-
-# Fungsi untuk membuat input per kategori
-def input_per_category(category, max_value):
-    number_input = st.text_input(f"Masukkan nilai untuk {category}: (1 - {max_value})", key=category)
-    return number_input
-
-# Dictionary yang berisi jumlah kategori untuk setiap kategori
-categories = {
-    'categoryA': 167,
-    'categoryB': 2,
-    'categoryC': 2212,
-    'categoryD': 3,
-    'categoryE': 25,
-    'categoryF': 3,
-    'unit': 19
-}
-
-# Mendapatkan input dari pengguna untuk setiap kategori
-for category, max_value in categories.items():
-    number_input = input_per_category(category, max_value)
-    if number_input:
-        st.write(f"Nilai yang disimpan untuk {category}: catA_{number_input}")
+# Input fitur numerik
+featureA = st.number_input('Masukkan nilai untuk featureA')
+featureB = st.number_input('Masukkan nilai untuk featureB')
+featureC = st.number_input('Masukkan nilai untuk featureC')
+featureD = st.number_input('Masukkan nilai untuk featureD')
+featureE = st.number_input('Masukkan nilai untuk featureE')
+featureF = st.number_input('Masukkan nilai untuk featureF')
+featureG = st.number_input('Masukkan nilai untuk featureG')
+featureH = st.number_input('Masukkan nilai untuk featureH')
+featureI = st.number_input('Masukkan nilai untuk featureI')
+compositionA = st.number_input('Masukkan nilai untuk compositionA')
+compositionB = st.number_input('Masukkan nilai untuk compositionB')
+compositionC = st.number_input('Masukkan nilai untuk compositionC')
+compositionD = st.number_input('Masukkan nilai untuk compositionD')
+compositionE = st.number_input('Masukkan nilai untuk compositionE')
+compositionF = st.number_input('Masukkan nilai untuk compositionF')
+compositionG = st.number_input('Masukkan nilai untuk compositionG')
+compositionH = st.number_input('Masukkan nilai untuk compositionH')
+compositionI = st.number_input('Masukkan nilai untuk compositionI')
+compositionJ = st.number_input('Masukkan nilai untuk compositionJ')
