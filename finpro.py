@@ -1,5 +1,10 @@
 import streamlit as st
 
+# Fungsi untuk membuat input per kategori
+def input_per_category(category, max_value):
+    number_input = st.text_input(f"Masukkan nilai untuk {category}: (1 - {max_value})", key=category)
+    return number_input
+
 # Dictionary yang berisi jumlah kategori untuk setiap kategori
 categories = {
     'categoryA': 167,
@@ -11,13 +16,8 @@ categories = {
     'unit': 19
 }
 
-# Mendapatkan input dari pengguna
-selected_category = st.selectbox("Pilih Kategori:", list(categories.keys()))
-number_input = st.text_input("Masukkan Nomor:")
-
-# Mengonversi nomor ke format yang diinginkan
-if number_input:
-    selected_value = f"{selected_category}_catA_{number_input}"
-    st.write("Nilai yang disimpan:", selected_value)
-else:
-    st.write("Masukkan nomor untuk mendapatkan nilai yang disimpan")
+# Mendapatkan input dari pengguna untuk setiap kategori
+for category, max_value in categories.items():
+    number_input = input_per_category(category, max_value)
+    if number_input:
+        st.write(f"Nilai yang disimpan untuk {category}: catA_{number_input}")
