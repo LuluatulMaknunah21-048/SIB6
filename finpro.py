@@ -125,7 +125,7 @@ if selected=='Start Prediksi':
         if unit =='18':
             df['unit_unit_18']=1
     button=st.button('PREDIKSI',use_container_width=1000,type='primary')
-     if button:
+    if button:
         if catb !='Silahkan Pilih'and catd !='Silahkan Pilih'and catd !='Silahkan Pilih':
             with open('norm.pkl', 'rb') as file:
                 normalisasi=pickle.load(file)
