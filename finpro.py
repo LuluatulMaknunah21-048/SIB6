@@ -27,6 +27,10 @@ if selected=='Artikel':
     <br>
     Dalam era di mana keberlanjutan menjadi fokus utama dalam segala aspek kehidupan, termasuk manajemen lingkungan dan sumber daya alam, menjaga kualitas air menjadi tantangan yang semakin mendesak. Di tengah kekhawatiran akan perubahan iklim, polusi, dan eksploitasi sumber daya alam, prediksi kualitas air menjadi instrumen penting dalam menghadapi tantangan ini dengan pendekatan yang berkelanjutan.
 ''', unsafe_allow_html=True)
+    st.markdown('''
+    <b>Mengapa Kualitas Air Menjadi Issu ESG?</b><br>
+    Pentingnya kualitas air tidak hanya terbatas pada aspek kesehatan masyarakat, tetapi juga berkaitan dengan tanggung jawab sosial dan lingkungan perusahaan (ESG). Secara global, perusahaan semakin menyadari bahwa pemeliharaan lingkungan hidup adalah bagian integral dari operasi mereka, serta memiliki dampak langsung terhadap reputasi, risiko hukum, dan stabilitas keuangan. Oleh karena itu, masalah kualitas air telah menjadi salah satu fokus utama dalam agenda ESG.
+''', unsafe_allow_html=True)
 
 if selected=='Start Prediksi':
     col1,col2,col3=st.columns(3)
