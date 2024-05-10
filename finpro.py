@@ -78,7 +78,7 @@ if selected=='Start Prediksi':
         catf=['Silahkan Pilih','0','1','2']
         catfp=st.selectbox('PILIH Category F',catf)
         if catfp =='0':
-            df['categoryD_catF_0']=1
+            df['categoryF_catF_0']=1
         if catfp =='1':
             df['categoryF_catF_1']=1
         if catfp =='2':
