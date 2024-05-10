@@ -20,7 +20,8 @@ with st.sidebar:
     selected=option_menu('Water Quality Predict',['Artikel','Start Prediksi','About Us'])
 st.title('PREDIKSI KUALITAS AIR')
 if selected=='Artikel':
-    st.write('Selamat datang, di web prediksi kualitas air')
+    st.write('Selamat datang, di web prediksi kualitas air.')
+    st.write('Tujuan dari penelitian ini sebagai berikut :')
     st.markdown('''
     <b>Menjaga Kualitas Air untuk Masa Depan yang Berkelanjutan: Membangun Prediksi yang Berkelanjutan dengan Pendekatan ESG</b>
     <br>
