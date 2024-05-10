@@ -126,7 +126,6 @@ if selected=='Start Prediksi':
             df['unit_unit_18']=1
     button=st.button('PREDIKSI',use_container_width=1000,type='primary')
     if button:
-        column= df.columns[df.eq(1).any()]
         if catb !='Silahkan Pilih'and catd !='Silahkan Pilih'and catd !='Silahkan Pilih'and unit !='Silahkan Pilih':
             with open('norm.pkl', 'rb') as file:
                 normalisasi=pickle.load(file)
@@ -138,7 +137,7 @@ if selected=='Start Prediksi':
             prediction=loaded_model.predict(norm_data)
             for i in prediction:
                 st.write('kualitas air = ',i)
-    else:
-        st.write('Mohon Isi semua Kolom Pertanyaan')
+        else:
+            st.write('Mohon Isi semua Kolom Pertanyaan')
 if selected=='About Us':
     st.write('kelompok 2 - Data Science SIB cycle 6 GreatEdu')
