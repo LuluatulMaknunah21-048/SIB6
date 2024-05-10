@@ -124,27 +124,27 @@ if selected=='Start Prediksi':
             df['unit_unit_17']=1
         if unitp == '18':
             df['unit_unit_18']=1
+    df['featureA']=featureA
+    df['featureB']=featureB
+    df['featureC']=featureC
+    df['featureD']=featureD
+    df['featureE']=featureE
+    df['featureF']=featureF
+    df['featureG']=featureG
+    df['featureH']=featureH
+    df['featureI']=featureI
+    df['compositionA']=compositionA
+    df['compositionB']=compositionB
+    df['compositionC']=compositionC
+    df['compositionD']=compositionD
+    df['compositionE']=compositionE
+    df['compositionF']=compositionF
+    df['compositionG']=compositionG
+    df['compositionH']=compositionH
+    df['compositionI']=compositionI
+    df['compositionJ']=compositionJ
     button=st.button('PREDIKSI',use_container_width=1000,type='primary')
     if button: 
-        df['featureA']=featureA
-        df['featureB']=featureB
-        df['featureC']=featureC
-        df['featureD']=featureD
-        df['featureE']=featureE
-        df['featureF']=featureF
-        df['featureG']=featureG
-        df['featureH']=featureH
-        df['featureI']=featureI
-        df['compositionA']=compositionA
-        df['compositionB']=compositionB
-        df['compositionC']=compositionC
-        df['compositionD']=compositionD
-        df['compositionE']=compositionE
-        df['compositionF']=compositionF
-        df['compositionG']=compositionG
-        df['compositionH']=compositionH
-        df['compositionI']=compositionI
-        df['compositionJ']=compositionJ
         if catbp !='Silahkan Pilih'and catdp !='Silahkan Pilih'and catdp !='Silahkan Pilih'and unitp !='Silahkan Pilih':
             with open('norm.pkl', 'rb') as file:
                 normalisasi=pickle.load(file)
