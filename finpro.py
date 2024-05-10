@@ -20,8 +20,8 @@ with st.sidebar:
     selected=option_menu('Water Quality Predict',['Artikel','Start Prediksi','About Us'])
 st.title('PREDIKSI KUALITAS AIR')
 if selected=='Artikel':
-    image_path = "air.jpeg"
-    st.image(image_path, caption="gambar air", height=300)
+    image_path = "airr.jpeg"
+    st.image(image_path, caption="water", use_column_width=True, output_format="auto")
 
 
 
