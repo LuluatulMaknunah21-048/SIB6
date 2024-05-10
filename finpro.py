@@ -1,5 +1,19 @@
 import streamlit as st
-# Input fitur numerik
+import pandas as pd
+selected_columns = [
+    'featureA', 'featureB', 'featureC', 'featureD', 'featureE', 'featureF', 'featureG', 'featureH', 'featureI',
+    'compositionA', 'compositionB', 'compositionC', 'compositionD', 'compositionE', 'compositionF', 'compositionG',
+    'compositionH', 'compositionI', 'compositionJ',
+    'categoryB_catB_0', 'categoryB_catB_1',
+    'categoryD_catD_0', 'categoryD_catD_1', 'categoryD_catD_2',
+    'categoryF_catF_0', 'categoryF_catF_1', 'categoryF_catF_2',
+    'unit_unit_0', 'unit_unit_1', 'unit_unit_10', 'unit_unit_11', 'unit_unit_12', 'unit_unit_13', 'unit_unit_14',
+    'unit_unit_15', 'unit_unit_16', 'unit_unit_17', 'unit_unit_18', 'unit_unit_2', 'unit_unit_3', 'unit_unit_4',
+    'unit_unit_5', 'unit_unit_6', 'unit_unit_7', 'unit_unit_8', 'unit_unit_9'
+]
+df= pd.DataFrame(columns=selected_columns)
+
+
 featureA = st.number_input('featureA')
 featureB = st.number_input('featureB')
 featureC = st.number_input('featureC')
@@ -58,3 +72,29 @@ unitp=st.selectbox('PILIH UNIT',unit)
             df['unit_unit_4']=1
         if unit =='5':
             df['unit_unit_5']=1
+        if unit =='6':
+            df['unit_unit_6']=1
+        if unit =='7':
+            df['unit_unit_7']=1
+        if unit =='8':
+            df['unit_unit_8']=1
+        if unit =='9':
+            df['unit_unit_9']=1
+        if unit =='10':
+            df['unit_unit_10']=1
+        if unit =='11':
+            df['unit_unit_11']=1
+         if unit =='12':
+            df['unit_unit_12']=1
+        if unit =='13':
+            df['unit_unit_13']=1
+        if unit =='14':
+            df['unit_unit_14']=1
+        if unit =='15':
+            df['unit_unit_15']=1
+        if unit =='16':
+            df['unit_unit_16']=1
+        if unit =='17':
+            df['unit_unit_17']=1
+        if unit =='18':
+            df['unit_unit_18']=1
