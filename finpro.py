@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-selected_columns = [
+kolom = [
     'featureA', 'featureB', 'featureC', 'featureD', 'featureE', 'featureF', 'featureG', 'featureH', 'featureI',
     'compositionA', 'compositionB', 'compositionC', 'compositionD', 'compositionE', 'compositionF', 'compositionG',
     'compositionH', 'compositionI', 'compositionJ',
@@ -11,7 +11,7 @@ selected_columns = [
     'unit_unit_15', 'unit_unit_16', 'unit_unit_17', 'unit_unit_18', 'unit_unit_2', 'unit_unit_3', 'unit_unit_4',
     'unit_unit_5', 'unit_unit_6', 'unit_unit_7', 'unit_unit_8', 'unit_unit_9'
 ]
-df= pd.DataFrame(columns=selected_columns)
+df= pd.DataFrame(data=[[0]*len(kolom)], columns=kolom)
 
 
 featureA = st.number_input('featureA')
