@@ -23,7 +23,7 @@ with col1:
     featureE = st.number_input('featureE')
     featureF = st.number_input('featureF')
     featureG = st.number_input('featureG')
-    featureH = st.number_input('featureH',use_container_width=500)
+    featureH = st.number_input('featureH')
 
 with col2:
     featureI = st.number_input('featureI')
@@ -33,7 +33,7 @@ with col2:
     compositionD = st.number_input('compositionD')
     compositionE = st.number_input('compositionE')
     compositionF = st.number_input('compositionF')
-    compositionG = st.number_input('compositionG',use_container_width=500)
+    compositionG = st.number_input('compositionG')
 with col3:
     compositionH = st.number_input('compositionH')
     compositionI = st.number_input('compositionI')
