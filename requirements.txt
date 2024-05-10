@@ -7,6 +7,6 @@ seaborn
 matplotlib
 plotly
 Pillow
-streamlit-option-menu
+streamlit_option_menu
 librosa
 pycaret
