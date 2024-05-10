@@ -21,8 +21,12 @@ with st.sidebar:
 st.title('PREDIKSI KUALITAS AIR')
 if selected=='Artikel':
     st.write('Selamat datang, di web prediksi kualitas air')
-    st.write('<b>Menjaga Kualitas Air untuk Masa Depan yang Berkelanjutan: Membangun Prediksi yang Berkelanjutan dengan Pendekatan ESG</b><br>
-Dalam era di mana keberlanjutan menjadi fokus utama dalam segala aspek kehidupan, termasuk manajemen lingkungan dan sumber daya alam, menjaga kualitas air menjadi tantangan yang semakin mendesak. Di tengah kekhawatiran akan perubahan iklim, polusi, dan eksploitasi sumber daya alam, prediksi kualitas air menjadi instrumen penting dalam menghadapi tantangan ini dengan pendekatan yang berkelanjutan.')
+    st.markdown('''
+    <b>Menjaga Kualitas Air untuk Masa Depan yang Berkelanjutan: Membangun Prediksi yang Berkelanjutan dengan Pendekatan ESG</b>
+    <br>
+    Dalam era di mana keberlanjutan menjadi fokus utama dalam segala aspek kehidupan, termasuk manajemen lingkungan dan sumber daya alam, menjaga kualitas air menjadi tantangan yang semakin mendesak. Di tengah kekhawatiran akan perubahan iklim, polusi, dan eksploitasi sumber daya alam, prediksi kualitas air menjadi instrumen penting dalam menghadapi tantangan ini dengan pendekatan yang berkelanjutan.
+''', unsafe_allow_html=True)
+
 if selected=='Start Prediksi':
     col1,col2,col3=st.columns(3)
     with col1:
