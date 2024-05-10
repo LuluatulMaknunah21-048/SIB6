@@ -103,4 +103,4 @@ with col3:
         df['unit_unit_17']=1
     if unit =='18':
         df['unit_unit_18']=1
-    button=st.button('PREDIKSI',type='primary')
+    button=st.button('PREDIKSI',use_container_width=300,type='primary')
