@@ -132,7 +132,7 @@ if selected=='Start Prediksi':
             norm_data = normalisasi.transform(df)
             with open('ridge_model.pkl', 'rb') as f:
                 loaded_model= pickle.load(f) 
-            prediction=;loaded_model.predict(norm_data)
+            prediction=loaded_model.predict(norm_data)
             st.write('kualitas air = ',prediction)
 if selected=='About Us':
     st.write('kelompok 2 - Data Science SIB cycle 6 GreatEdu')
