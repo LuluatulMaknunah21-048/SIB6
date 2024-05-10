@@ -20,6 +20,8 @@ with st.sidebar:
     selected=option_menu('Water Quality Predict',['Artikel','Start Prediksi','About Us'])
 st.title('PREDIKSI KUALITAS AIR')
 if selected=='Artikel':
+    image_path = "air.jpeg"
+    st.image(image_path, caption="gambar jamur", use_column_width=True, output_format="auto")
     st.write('Selamat datang, di web prediksi kualitas air.')
     st.write('Tujuan dari penelitian ini sebagai berikut :')
     st.markdown('''
