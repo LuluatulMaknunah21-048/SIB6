@@ -21,7 +21,7 @@ with st.sidebar:
 st.title('PREDIKSI KUALITAS AIR')
 if selected=='Artikel':
     image_path = "air.jpeg"
-    st.image(image_path, caption="gambar air", use_column_width=True, output_format="auto", width=None,)
+    st.image(image_path, caption="gambar air", use_column_width=True, output_format="auto", width=None,height=300)
 
     st.write('Selamat datang, di web prediksi kualitas air.')
     st.write('Tujuan dari penelitian ini sebagai berikut :')
