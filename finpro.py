@@ -61,72 +61,72 @@ if selected=='Start Prediksi':
         compositionJ = st.number_input('compositionJ')
         catb=['Silahkan Pilih','0','1']
         catbp=st.selectbox('PILIH Category B',catb)
-        if catb =='0':
+        if catbp =='0':
             df['categoryB_catB_0']=1
-        if catb =='1':
+        if catbp =='1':
             df['categoryB_catB_1']=1
               
         catd=['Silahkan Pilih','0','1','2']
         catdp=st.selectbox('PILIH Category D',catd)
-        if catd =='0':
+        if catdp =='0':
             df['categoryD_catD_0']=1
-        if catd =='1':
+        if catdp =='1':
             df['categoryD_catD_1']=1
-        if catd =='2':
+        if catdp =='2':
             df['categoryD_catD_1']=1
 
         catf=['Silahkan Pilih','0','1','2']
         catfp=st.selectbox('PILIH Category F',catf)
-        if catf =='0':
+        if catfp =='0':
             df['categoryD_catF_0']=1
-        if catf =='1':
+        if catfp =='1':
             df['categoryF_catF_1']=1
-        if catf =='2':
+        if catfp =='2':
             df['categoryF_catF_1']=1
 
         unit=['Silahkan Pilih','0','1','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18']
         unitp=st.selectbox('PILIH UNIT',unit)
-        if unit =='0':
+        if unitp == '0':
             df['unit_unit_0']=1
-        if unit =='1':
+        if unitp == '1':
             df['unit_unit_1']=1
-        if unit =='2':
+        if unitp == '2':
             df['unit_unit_2']=1
-        if unit =='3':
+        if unitp == '3':
             df['unit_unit_3']=1
-        if unit =='4':
+        if unitp == '4':
             df['unit_unit_4']=1
-        if unit =='5':
+        if unitp == '5':
             df['unit_unit_5']=1
-        if unit =='6':
+        if unitp == '6':
             df['unit_unit_6']=1
-        if unit =='7':
+        if unitp == '7':
             df['unit_unit_7']=1
-        if unit =='8':
+        if unitp == '8':
             df['unit_unit_8']=1
-        if unit =='9':
+        if unitp == '9':
             df['unit_unit_9']=1
-        if unit =='10':
+        if unitp == '10':
             df['unit_unit_10']=1
-        if unit =='11':
+        if unitp == '11':
             df['unit_unit_11']=1
-        if unit =='12':
+        if unitp == '12':
             df['unit_unit_12']=1
-        if unit =='13':
+        if unitp == '13':
             df['unit_unit_13']=1
-        if unit =='14':
+        if unitp == '14':
             df['unit_unit_14']=1
-        if unit =='15':
+        if unitp == '15':
             df['unit_unit_15']=1
-        if unit =='16':
+        if unitp == '16':
             df['unit_unit_16']=1
-        if unit =='17':
+        if unitp == '17':
             df['unit_unit_17']=1
-        if unit =='18':
+        if unitp == '18':
             df['unit_unit_18']=1
     button=st.button('PREDIKSI',use_container_width=1000,type='primary')
     if button:
-        if catb !='Silahkan Pilih'and catd !='Silahkan Pilih'and catd !='Silahkan Pilih'and unit !='Silahkan Pilih':
+        if catbp !='Silahkan Pilih'and catdp !='Silahkan Pilih'and catdp !='Silahkan Pilih'and unitp !='Silahkan Pilih':
             with open('norm.pkl', 'rb') as file:
                 normalisasi=pickle.load(file)
             norm_data = normalisasi.transform(df)
