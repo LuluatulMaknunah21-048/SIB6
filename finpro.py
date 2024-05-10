@@ -13,7 +13,7 @@ kolom = [
 ]
 df= pd.DataFrame(data=[[0]*len(kolom)], columns=kolom)
 
-st.title('APLIKASI KLASIFIKASI KELAS JAMUR')
+st.title('PREDIKSI KUALITAS AIR')
 col1,col2,col3=st.columns(2)
 with col1:
     featureA = st.number_input('featureA')
