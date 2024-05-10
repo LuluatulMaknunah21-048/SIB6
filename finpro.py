@@ -135,5 +135,7 @@ if selected=='Start Prediksi':
             prediction=loaded_model.predict(norm_data)
             for i in prediction:
                 st.write('kualitas air = ',i)
+    else:
+        st.write('Mohon Isi semua Kolom Pertanyaan')
 if selected=='About Us':
     st.write('kelompok 2 - Data Science SIB cycle 6 GreatEdu')
