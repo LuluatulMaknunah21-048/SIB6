@@ -17,7 +17,7 @@ kolom = [
 ]
 df= pd.DataFrame(data=[[0]*len(kolom)], columns=kolom)
 with st.sidebar:
-    selected=option_menu('Prediksi Kualitas Air',['Artikel','Start Prediksi','About Us'])
+    selected=option_menu('Water Quality Predict',['Artikel','Start Prediksi','About Us'])
 st.title('PREDIKSI KUALITAS AIR')
 if selected=='Artikel':
     st.write('Selamat datang, di web prediksi kualitas air')
