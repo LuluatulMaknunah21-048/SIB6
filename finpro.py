@@ -16,7 +16,6 @@ kolom = [
 'unit_unit_5', 'unit_unit_6', 'unit_unit_7', 'unit_unit_8', 'unit_unit_9'
 ]
 df= pd.DataFrame(data=[[0]*len(kolom)], columns=kolom)
-st.write(df)
 with st.sidebar:
     selected=option_menu('Water Quality Predict',['Artikel','Start Prediksi','About Us'])
 st.title('PREDIKSI KUALITAS AIR')
@@ -131,6 +130,7 @@ if selected=='Start Prediksi':
             with open('norm.pkl', 'rb') as file:
                 normalisasi=pickle.load(file)
             norm_data = normalisasi.transform(df)
+            st.write(df)
             st.write(norm_data)
             with open('ridge_model.pkl', 'rb') as f:
                 loaded_model= pickle.load(f) 
