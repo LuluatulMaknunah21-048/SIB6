@@ -145,12 +145,13 @@ if selected=='Start Prediksi':
     df['compositionJ']=compositionJ
     button=st.button('PREDIKSI',use_container_width=1000,type='primary')
     if button: 
+        st.write(df)
         if catbp !='Silahkan Pilih'and catdp !='Silahkan Pilih'and catdp !='Silahkan Pilih'and unitp !='Silahkan Pilih':
             with open('norm.pkl', 'rb') as file:
                 normalisasi=pickle.load(file)
             norm_data = normalisasi.transform(df)
-            st.write(df)
-            st.write(norm_data)
+            #st.write(df)
+            #st.write(norm_data)
             with open('ridge_model.pkl', 'rb') as f:
                 loaded_model= pickle.load(f) 
             prediction=loaded_model.predict(norm_data)
