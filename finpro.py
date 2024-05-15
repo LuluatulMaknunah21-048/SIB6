@@ -152,9 +152,12 @@ if selected=='Start Prediksi':
             norm_data = normalisasi.transform(df)
             #st.write(df)
             #st.write(norm_data)
-            with open('ridge_model.pkl', 'rb') as f:
-                loaded_model= pickle.load(f) 
-            prediction=loaded_model.predict(norm_data)
+            with open('pca20.pkl', 'rb') as file:
+                load_pca = pickle.load(file)
+            with open('ridge_model_pca.pkl', 'rb') as file:
+                load_model = pickle.load(file)
+            pca_loaded = load_pca.transform(norm_data)
+            prediction = _load_model.predict(pca_loaded)
             for i in prediction:
                 st.write('kualitas air = ',i)
         else:
