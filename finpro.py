@@ -157,7 +157,7 @@ if selected=='Start Prediksi':
             with open('ridge_model_pca.pkl', 'rb') as file:
                 load_model = pickle.load(file)
             pca_loaded = load_pca.transform(norm_data)
-            prediction = _load_model.predict(pca_loaded)
+            prediction = load_model.predict(pca_loaded)
             for i in prediction:
                 st.write('kualitas air = ',i)
         else:
