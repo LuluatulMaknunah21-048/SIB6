@@ -4,6 +4,15 @@ from streamlit_option_menu import option_menu
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.linear_model import Ridge
 import pickle
+st.set_page_config(
+    page_title="My Streamlit App",
+    page_icon=":shark:",
+    layout="wide",
+    initial_sidebar_state="expanded",
+    theme="light",  # Mengatur tema ke "light"
+    primaryColor="#4bdcff",  # Mengatur warna primer sesuai dengan yang Anda inginkan
+    font="monospace"  # Mengatur font
+)
 with st.sidebar:
     selected=option_menu('Water Quality Predict',['Artikel','Start Prediksi','About Us'])
 st.title('PREDIKSI KUALITAS AIR')
