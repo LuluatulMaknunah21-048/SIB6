@@ -49,7 +49,7 @@ if selected=='Start Prediksi':
         "margin":"5px",
         "--hover-color":"pink",},
     "nav-link-selected":{
-        "background-color":"Purple"},
+        "background-color":"purple"},
     })
     if pilih=='File':
         # Mengunggah file
@@ -59,17 +59,17 @@ if selected=='Start Prediksi':
             # Membaca file yang diunggah
             file_contents = uploaded_file.read()
             # Menampilkan konten file
-            st.write("Konten file:")
-            st.write(file_contents)
+            df_file=pd.read_csv(uploaded_file)
+            st.write('contoh 5 data yang ditampilkan',df.head(5))
         else:
             st.write('Mohon Uploaded File berformat CSV')
         button=st.button('PREDIKSI',use_container_width=1000,type='primary')
         if button: 
-            st.write(df)
+            #st.write(df_)
             if uploaded_file is not None:
                 with open('norm.pkl', 'rb') as file:
                     normalisasi=pickle.load(file)
-                norm_data = normalisasi.transform(df)
+                norm_data = normalisasi.transform(df_file)
                 #st.write(df)
                 #st.write(norm_data)
                 with open('ridge_best_model.pkl', 'rb') as file:
@@ -79,6 +79,16 @@ if selected=='Start Prediksi':
                     st.write('kualitas air = ',i)
             else:
                 st.write('Mohon Uploaded File')
+
+        
+        
+        
+        
+        
+        
+        
+
+        
     if pilih=='Input':
         col1,col2,col3=st.columns(3)
         with col1:
