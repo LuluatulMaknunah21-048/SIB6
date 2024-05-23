@@ -4,22 +4,6 @@ from streamlit_option_menu import option_menu
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.linear_model import Ridge
 import pickle
-# Definisikan CSS kustom untuk tema
-css_theme = """
-<style>
-/* Atur tema */
-:root {
-  --primary-color: #4bdcff; /* Warna primer */
-  --background-color: #f8f9fa; /* Warna latar belakang */
-  --secondary-background-color: #dee2e6; /* Warna latar belakang sekunder */
-  --text-color: #343a40; /* Warna teks */
-  --font: Arial, sans-serif; /* Jenis font */
-}
-</style>
-"""
-
-# Tampilkan CSS kustom untuk tema menggunakan st.markdown
-st.markdown(css_theme, unsafe_allow_html=True)
 with st.sidebar:
     selected=option_menu('Water Quality Predict',['Artikel','Start Prediksi','About Us'])
 st.title('PREDIKSI KUALITAS AIR')
