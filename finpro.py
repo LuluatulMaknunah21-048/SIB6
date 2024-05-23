@@ -75,7 +75,7 @@ if selected=='Start Prediksi':
                 df_encoded= pd.get_dummies(df_cleaned, columns=kolom_kategorikal, dummy_na=False, dtype=int)
                 with open('norm.pkl', 'rb') as file:
                     normalisasi = pickle.load(file)
-                norm_data = normalisasi.transform(df_encoded)
+                norm_data = normalisasi.fit_transform(df_encoded)
                 # Prediksi kualitas air
                 with open('ridge_best_model.pkl', 'rb') as file:
                     load_model = pickle.load(file)
