@@ -57,7 +57,7 @@ if selected=='Start Prediksi':
             if uploaded_file is not None:
                 # Proses prediksi
                 # List kolom numerik
-                numeric_columns = df_train.select_dtypes(include='number').columns
+                numeric_columns = df_file.select_dtypes(include='number').columns
                 # Mengisi nilai yang hilang pada kolom numerik dengan mean
                 for col in numeric_columns:
                     df_file[col].fillna(df_file[col].mean(), inplace=True)
