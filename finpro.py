@@ -51,7 +51,27 @@ if selected=='Start Prediksi':
     "nav-link-selected":{
         "background-color":"purple"},
     })
-    if pilih=='File':
+if selected == 'Start Prediksi':
+    pilih = option_menu(
+        menu_title=None,
+        options=['File', 'Input'],
+        default_index=0,
+        orientation='horizontal',
+        menu_icon=None,
+        styles={
+            "nav-link": {
+                "font-size": "12px",
+                "text-align": "center",
+                "margin": "5px",
+                "--hover-color": "pink",
+            },
+            "nav-link-selected": {
+                "background-color": "purple"
+            },
+        }
+    )
+
+    if pilih == 'File':
         # Mengunggah file
         uploaded_file = st.file_uploader("Unggah file CSV di sini", type=['csv'], accept_multiple_files=False)
         # Memeriksa apakah file diunggah
@@ -62,23 +82,20 @@ if selected=='Start Prediksi':
             st.write('Contoh 5 data yang ditampilkan:')
             st.write(df_file.head(5))
         else:
-            st.write('Mohon Uploaded File berformat CSV')
-        button=st.button('PREDIKSI',use_container_width=1000,type='primary')
-        if button: 
-            #st.write(df_)
+            st.write('Mohon unggah file dalam format CSV')
+        button = st.button('PREDIKSI', use_container_width=1000, type='primary')
+        if button:
+            # Memeriksa apakah file diunggah dan dataframe telah dibuat
             if uploaded_file is not None:
+                # Proses prediksi
                 #Drop kolom 'categoryA' sampai 'categoryF' di df_train
                 df_cleaned = df_file.drop(columns=['id','categoryA', 'categoryC','categoryE'])
                 kolom_kategorikal = ['categoryB', 'categoryD', 'categoryF', 'unit']
                 # Melakukan one-hot encoding untuk kolom kategori yang dipilih
                 df_encoded= pd.get_dummies(df_cleaned, columns=kolom_kategorikal, dummy_na=False, dtype=int)
                 with open('norm.pkl', 'rb') as file:
-                    normalisasi=pickle.load(file)
+                    normalisasi = pickle.load(file)
                 norm_data = normalisasi.transform(df_encoded)
-                #st.write(df)
-                #st.write(norm_data)
-                with open('ridge_best_model.pkl', 'rb') as file:
-                    load_model = pickle.load(file)
                 # Prediksi kualitas air
                 predictions = load_model.predict(norm_data)
                 # Mengambil kolom 'id' dari dataframe asli
@@ -89,9 +106,10 @@ if selected=='Start Prediksi':
                 df_merged = pd.concat([df_file, df_pred], axis=1)
                 # Menampilkan dataframe hasil penggabungan
                 st.write('Dataframe setelah digabungkan:')
-                st.write(df_merged.head(5)
+                st.write(df_merged.head(5))
             else:
-                st.write('Mohon Uploaded File berformat CSV')
+                st.write('Mohon unggah file CSV terlebih dahulu')
+
                          
                          
     if pilih=='Input':
