@@ -79,16 +79,6 @@ if selected=='Start Prediksi':
                     st.write('kualitas air = ',i)
             else:
                 st.write('Mohon Uploaded File')
-
-        
-        
-        
-        
-        
-        
-        
-
-        
     if pilih=='Input':
         col1,col2,col3=st.columns(3)
         with col1:
