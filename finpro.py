@@ -57,6 +57,7 @@ if selected=='Start Prediksi':
             if uploaded_file is not None:
                 # Proses prediksi
                 # List kolom numerik
+                id_column=df_file['id']
                 numeric_columns = df_file.select_dtypes(include='number').columns
                 # Mengisi nilai yang hilang pada kolom numerik dengan mean
                 for col in numeric_columns:
@@ -77,7 +78,10 @@ if selected=='Start Prediksi':
                 predictions = load_model.predict(norm_data)
                 # Membuat DataFrame dari hasil prediksi
                 df_pred = pd.DataFrame({'Predicted': predictions})
-                st.write(df_pred)
+                df_file_new = pd.concat([id_column, df_cleaned], axis=1)
+                df_pred_new = pd.concat([df_file_new, df_pred], axis=0)
+                st.write(df_pred_new.head(5))
+
                 
             else:
                 st.write('Mohon unggah file CSV terlebih dahulu')
