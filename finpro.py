@@ -51,26 +51,6 @@ if selected=='Start Prediksi':
     "nav-link-selected":{
         "background-color":"purple"},
     })
-if selected == 'Start Prediksi':
-    pilih = option_menu(
-        menu_title=None,
-        options=['File', 'Input'],
-        default_index=0,
-        orientation='horizontal',
-        menu_icon=None,
-        styles={
-            "nav-link": {
-                "font-size": "12px",
-                "text-align": "center",
-                "margin": "5px",
-                "--hover-color": "pink",
-            },
-            "nav-link-selected": {
-                "background-color": "purple"
-            },
-        }
-    )
-
     if pilih == 'File':
         # Mengunggah file
         uploaded_file = st.file_uploader("Unggah file CSV di sini", type=['csv'], accept_multiple_files=False)
