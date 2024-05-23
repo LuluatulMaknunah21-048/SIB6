@@ -57,10 +57,10 @@ if selected=='Start Prediksi':
         # Memeriksa apakah file diunggah
         if uploaded_file is not None:
             # Membaca file yang diunggah
-            file_contents = uploaded_file.read()
-            # Menampilkan konten file
-            df_file=pd.read_csv(uploaded_file)
-            st.write('contoh 5 data yang ditampilkan',df.head(5))
+            df_file = pd.read_csv(uploaded_file)
+            # Menampilkan contoh 5 data dari file yang diunggah
+            st.write('Contoh 5 data yang ditampilkan:')
+            st.write(df_file.head(5))
         else:
             st.write('Mohon Uploaded File berformat CSV')
         button=st.button('PREDIKSI',use_container_width=1000,type='primary')
