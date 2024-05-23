@@ -64,13 +64,12 @@ if selected=='Start Prediksi':
                 st.write(df_encoded)
                 with open('norm.pkl', 'rb') as file:
                     normalisasi = pickle.load(file)
-                norm_data = normalisasi.fit_transform(df_encoded)
-                df_norm=pd.DataFrame(norm_data,columns=df_encoded.columns)
+                norm_data = normalisasi.transform(df_encoded)
                 st.write(norm_data)
                 # Prediksi kualitas air
                 with open('ridge_best_model.pkl', 'rb') as file:
                     load_model = pickle.load(file)
-                predictions = load_model.predict(df_norm)
+                predictions = load_model.predict(norm_data)
                 # Mengambil kolom 'id' dari dataframe asli
                 ids = df_file.index
                 # Membuat dataframe baru untuk hasil prediksi
