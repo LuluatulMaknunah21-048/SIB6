@@ -49,7 +49,7 @@ if selected=='Start Prediksi':
         "margin":"5px",
         "--hover-color":"pink",},
     "nav-link-selected":{
-        "background-color":"red"},
+        "background-color":"Purple"},
     })
     if pilih=='File':
         # Mengunggah file
