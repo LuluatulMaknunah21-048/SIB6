@@ -4,6 +4,31 @@ from streamlit_option_menu import option_menu
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.linear_model import Ridge
 import pickle
+# Mengubah warna sidebar
+st.markdown(
+    """
+    <style>
+    .sidebar .sidebar-content {
+        background-image: linear-gradient(#800080,#800080);
+        color: white;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Mengubah warna tombol
+st.markdown(
+    """
+    <style>
+    .stButton>button {
+        background-color: #800080 !important;
+        color: white;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 with st.sidebar:
     selected=option_menu('Water Quality Predict',['Artikel','Start Prediksi','About Us'])
 st.title('PREDIKSI KUALITAS AIR')
