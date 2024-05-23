@@ -56,7 +56,12 @@ if selected=='Start Prediksi':
             # Memeriksa apakah file diunggah dan dataframe telah dibuat
             if uploaded_file is not None:
                 # Proses prediksi
-                #Drop kolom 'categoryA' sampai 'categoryF' di df_train
+                # List kolom numerik
+                numeric_columns = df_train.select_dtypes(include='number').columns
+                # Mengisi nilai yang hilang pada kolom numerik dengan mean
+                for col in numeric_columns:
+                    df_file[col].fillna(df_file[col].mean(), inplace=True)
+                #Drop kolom 'categoryA' sampai 'categoryF' di df_file
                 df_cleaned = df_file.drop(columns=['id','categoryA', 'categoryC','categoryE'])
                 kolom_kategorikal = ['categoryB', 'categoryD', 'categoryF', 'unit']
                 # Melakukan one-hot encoding untuk kolom kategori yang dipilih
