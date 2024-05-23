@@ -76,6 +76,7 @@ if selected=='Start Prediksi':
                 with open('norm.pkl', 'rb') as file:
                     normalisasi = pickle.load(file)
                 norm_data = normalisasi.fit_transform(df_encoded)
+                st.write(norm_data)
                 # Prediksi kualitas air
                 with open('ridge_best_model.pkl', 'rb') as file:
                     load_model = pickle.load(file)
