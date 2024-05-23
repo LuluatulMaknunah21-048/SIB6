@@ -4,18 +4,6 @@ from streamlit_option_menu import option_menu
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.linear_model import Ridge
 import pickle
-kolom = [
-'featureA', 'featureB', 'featureC', 'featureD', 'featureE', 'featureF', 'featureG', 'featureH', 'featureI',
-'compositionA', 'compositionB', 'compositionC', 'compositionD', 'compositionE', 'compositionF', 'compositionG',
-'compositionH', 'compositionI', 'compositionJ',
-'categoryB_catB_0', 'categoryB_catB_1',
-'categoryD_catD_0', 'categoryD_catD_1', 'categoryD_catD_2',
-'categoryF_catF_0', 'categoryF_catF_1', 'categoryF_catF_2',
-'unit_unit_0', 'unit_unit_1', 'unit_unit_10', 'unit_unit_11', 'unit_unit_12', 'unit_unit_13', 'unit_unit_14',
-'unit_unit_15', 'unit_unit_16', 'unit_unit_17', 'unit_unit_18', 'unit_unit_2', 'unit_unit_3', 'unit_unit_4',
-'unit_unit_5', 'unit_unit_6', 'unit_unit_7', 'unit_unit_8', 'unit_unit_9'
-]
-df= pd.DataFrame(data=[[0]*len(kolom)], columns=kolom)
 with st.sidebar:
     selected=option_menu('Water Quality Predict',['Artikel','Start Prediksi','About Us'])
 st.title('PREDIKSI KUALITAS AIR')
@@ -96,6 +84,18 @@ if selected=='Start Prediksi':
                          
                          
     if pilih=='Input':
+        kolom = [
+'featureA', 'featureB', 'featureC', 'featureD', 'featureE', 'featureF', 'featureG', 'featureH', 'featureI',
+'compositionA', 'compositionB', 'compositionC', 'compositionD', 'compositionE', 'compositionF', 'compositionG',
+'compositionH', 'compositionI', 'compositionJ',
+'categoryB_catB_0', 'categoryB_catB_1',
+'categoryD_catD_0', 'categoryD_catD_1', 'categoryD_catD_2',
+'categoryF_catF_0', 'categoryF_catF_1', 'categoryF_catF_2',
+'unit_unit_0', 'unit_unit_1', 'unit_unit_10', 'unit_unit_11', 'unit_unit_12', 'unit_unit_13', 'unit_unit_14',
+'unit_unit_15', 'unit_unit_16', 'unit_unit_17', 'unit_unit_18', 'unit_unit_2', 'unit_unit_3', 'unit_unit_4',
+'unit_unit_5', 'unit_unit_6', 'unit_unit_7', 'unit_unit_8', 'unit_unit_9'
+]
+        df= pd.DataFrame(data=[[0]*len(kolom)], columns=kolom)
         col1,col2,col3=st.columns(3)
         with col1:
             featureA = st.number_input('featureA')
