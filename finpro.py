@@ -36,131 +36,182 @@ if selected=='Artikel':
 ''', unsafe_allow_html=True)
 
 if selected=='Start Prediksi':
-    col1,col2,col3=st.columns(3)
-    with col1:
-        featureA = st.number_input('featureA')
-        featureB = st.number_input('featureB')
-        featureC = st.number_input('featureC')
-        featureD = st.number_input('featureD')
-        featureE = st.number_input('featureE')
-        featureF = st.number_input('featureF')
-        featureG = st.number_input('featureG')
-        featureH = st.number_input('featureH')
-    with col2:
-        featureI = st.number_input('featureI')
-        compositionA = st.number_input('compositionA')
-        compositionB = st.number_input('compositionB')
-        compositionC = st.number_input('compositionC')
-        compositionD = st.number_input('compositionD')
-        compositionE = st.number_input('compositionE')
-        compositionF = st.number_input('compositionF')
-        compositionG = st.number_input('compositionG')
-    with col3:
-        compositionH = st.number_input('compositionH')
-        compositionI = st.number_input('compositionI')
-        compositionJ = st.number_input('compositionJ')
-        catb=['Silahkan Pilih','0','1']
-        catbp=st.selectbox('PILIH Category B',catb)
-        if catbp =='0':
-            df['categoryB_catB_0']=1
-        if catbp =='1':
-            df['categoryB_catB_1']=1
-              
-        catd=['Silahkan Pilih','0','1','2']
-        catdp=st.selectbox('PILIH Category D',catd)
-        if catdp =='0':
-            df['categoryD_catD_0']=1
-        if catdp =='1':
-            df['categoryD_catD_1']=1
-        if catdp =='2':
-            df['categoryD_catD_1']=1
-
-        catf=['Silahkan Pilih','0','1','2']
-        catfp=st.selectbox('PILIH Category F',catf)
-        if catfp =='0':
-            df['categoryF_catF_0']=1
-        if catfp =='1':
-            df['categoryF_catF_1']=1
-        if catfp =='2':
-            df['categoryF_catF_1']=1
-
-        unit=['Silahkan Pilih','0','1','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18']
-        unitp=st.selectbox('PILIH UNIT',unit)
-        if unitp == '0':
-            df['unit_unit_0']=1
-        if unitp == '1':
-            df['unit_unit_1']=1
-        if unitp == '2':
-            df['unit_unit_2']=1
-        if unitp == '3':
-            df['unit_unit_3']=1
-        if unitp == '4':
-            df['unit_unit_4']=1
-        if unitp == '5':
-            df['unit_unit_5']=1
-        if unitp == '6':
-            df['unit_unit_6']=1
-        if unitp == '7':
-            df['unit_unit_7']=1
-        if unitp == '8':
-            df['unit_unit_8']=1
-        if unitp == '9':
-            df['unit_unit_9']=1
-        if unitp == '10':
-            df['unit_unit_10']=1
-        if unitp == '11':
-            df['unit_unit_11']=1
-        if unitp == '12':
-            df['unit_unit_12']=1
-        if unitp == '13':
-            df['unit_unit_13']=1
-        if unitp == '14':
-            df['unit_unit_14']=1
-        if unitp == '15':
-            df['unit_unit_15']=1
-        if unitp == '16':
-            df['unit_unit_16']=1
-        if unitp == '17':
-            df['unit_unit_17']=1
-        if unitp == '18':
-            df['unit_unit_18']=1
-    df['featureA']=featureA
-    df['featureB']=featureB
-    df['featureC']=featureC
-    df['featureD']=featureD
-    df['featureE']=featureE
-    df['featureF']=featureF
-    df['featureG']=featureG
-    df['featureH']=featureH
-    df['featureI']=featureI
-    df['compositionA']=compositionA
-    df['compositionB']=compositionB
-    df['compositionC']=compositionC
-    df['compositionD']=compositionD
-    df['compositionE']=compositionE
-    df['compositionF']=compositionF
-    df['compositionG']=compositionG
-    df['compositionH']=compositionH
-    df['compositionI']=compositionI
-    df['compositionJ']=compositionJ
-    button=st.button('PREDIKSI',use_container_width=1000,type='primary')
-    if button: 
-        st.write(df)
-        if catbp !='Silahkan Pilih'and catdp !='Silahkan Pilih'and catdp !='Silahkan Pilih'and unitp !='Silahkan Pilih':
-            with open('norm.pkl', 'rb') as file:
-                normalisasi=pickle.load(file)
-            norm_data = normalisasi.transform(df)
-            #st.write(df)
-            #st.write(norm_data)
-            with open('pca20.pkl', 'rb') as file:
-                load_pca = pickle.load(file)
-            with open('ridge_model_pca.pkl', 'rb') as file:
-                load_model = pickle.load(file)
-            pca_loaded = load_pca.transform(norm_data)
-            prediction = load_model.predict(pca_loaded)
-            for i in prediction:
-                st.write('kualitas air = ',i)
+    pilih=option_menu(
+    menu_title=None,
+    options=['File', 'Input'],
+    default_index=0,
+    orientation='horizontal',
+    menu_icon=None,
+    styles={
+    "nav-link":{
+        "font-size":"12px",
+        "text-align":"center",
+        "margin":"5px",
+        "--hover-color":"pink",},
+    "nav-link-selected":{
+        "background-color":"purple"},
+    })
+    if pilih=='File':
+        # Mengunggah file
+        uploaded_file = st.file_uploader("Unggah file CSV di sini", type=['csv'], accept_multiple_files=False)
+        # Memeriksa apakah file diunggah
+        if uploaded_file is not None:
+            # Membaca file yang diunggah
+            file_contents = uploaded_file.read()
+            # Menampilkan konten file
+            st.write("Konten file:")
+            st.write(file_contents)
         else:
-            st.write('Mohon Isi semua Kolom Pertanyaan')
+            st.write('Mohon Uploaded File berformat CSV')
+        button=st.button('PREDIKSI',use_container_width=1000,type='primary')
+        if button: 
+            st.write(df)
+            if uploaded_file is not None:
+                with open('norm.pkl', 'rb') as file:
+                    normalisasi=pickle.load(file)
+                norm_data = normalisasi.transform(df)
+                #st.write(df)
+                #st.write(norm_data)
+                with open('ridge_best_model.pkl', 'rb') as file:
+                    load_model = pickle.load(file)
+                prediction = load_model.predict(norm_data)
+                for i in prediction:
+                    st.write('kualitas air = ',i)
+            else:
+                st.write('Mohon Uploaded File')
+
+        
+        
+        
+        
+        
+        
+        
+
+        
+    if pilih=='Input':
+        col1,col2,col3=st.columns(3)
+        with col1:
+            featureA = st.number_input('featureA')
+            featureB = st.number_input('featureB')
+            featureC = st.number_input('featureC')
+            featureD = st.number_input('featureD')
+            featureE = st.number_input('featureE')
+            featureF = st.number_input('featureF')
+            featureG = st.number_input('featureG')
+            featureH = st.number_input('featureH')
+        with col2:
+            featureI = st.number_input('featureI')
+            compositionA = st.number_input('compositionA')
+            compositionB = st.number_input('compositionB')
+            compositionC = st.number_input('compositionC')
+            compositionD = st.number_input('compositionD')
+            compositionE = st.number_input('compositionE')
+            compositionF = st.number_input('compositionF')
+            compositionG = st.number_input('compositionG')
+        with col3:
+            compositionH = st.number_input('compositionH')
+            compositionI = st.number_input('compositionI')
+            compositionJ = st.number_input('compositionJ')
+            catb=['Silahkan Pilih','0','1']
+            catbp=st.selectbox('PILIH Category B',catb)
+            if catbp =='0':
+                df['categoryB_catB_0']=1
+            if catbp =='1':
+                df['categoryB_catB_1']=1
+
+            catd=['Silahkan Pilih','0','1','2']
+            catdp=st.selectbox('PILIH Category D',catd)
+            if catdp =='0':
+                df['categoryD_catD_0']=1
+            if catdp =='1':
+                df['categoryD_catD_1']=1
+            if catdp =='2':
+                df['categoryD_catD_1']=1
+
+            catf=['Silahkan Pilih','0','1','2']
+            catfp=st.selectbox('PILIH Category F',catf)
+            if catfp =='0':
+                df['categoryF_catF_0']=1
+            if catfp =='1':
+                df['categoryF_catF_1']=1
+            if catfp =='2':
+                df['categoryF_catF_1']=1
+
+            unit=['Silahkan Pilih','0','1','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18']
+            unitp=st.selectbox('PILIH UNIT',unit)
+            if unitp == '0':
+                df['unit_unit_0']=1
+            if unitp == '1':
+                df['unit_unit_1']=1
+            if unitp == '2':
+                df['unit_unit_2']=1
+            if unitp == '3':
+                df['unit_unit_3']=1
+            if unitp == '4':
+                df['unit_unit_4']=1
+            if unitp == '5':
+                df['unit_unit_5']=1
+            if unitp == '6':
+                df['unit_unit_6']=1
+            if unitp == '7':
+                df['unit_unit_7']=1
+            if unitp == '8':
+                df['unit_unit_8']=1
+            if unitp == '9':
+                df['unit_unit_9']=1
+            if unitp == '10':
+                df['unit_unit_10']=1
+            if unitp == '11':
+                df['unit_unit_11']=1
+            if unitp == '12':
+                df['unit_unit_12']=1
+            if unitp == '13':
+                df['unit_unit_13']=1
+            if unitp == '14':
+                df['unit_unit_14']=1
+            if unitp == '15':
+                df['unit_unit_15']=1
+            if unitp == '16':
+                df['unit_unit_16']=1
+            if unitp == '17':
+                df['unit_unit_17']=1
+            if unitp == '18':
+                df['unit_unit_18']=1
+        df['featureA']=featureA
+        df['featureB']=featureB
+        df['featureC']=featureC
+        df['featureD']=featureD
+        df['featureE']=featureE
+        df['featureF']=featureF
+        df['featureG']=featureG
+        df['featureH']=featureH
+        df['featureI']=featureI
+        df['compositionA']=compositionA
+        df['compositionB']=compositionB
+        df['compositionC']=compositionC
+        df['compositionD']=compositionD
+        df['compositionE']=compositionE
+        df['compositionF']=compositionF
+        df['compositionG']=compositionG
+        df['compositionH']=compositionH
+        df['compositionI']=compositionI
+        df['compositionJ']=compositionJ
+        button=st.button('PREDIKSI',use_container_width=1000,type='primary')
+        if button: 
+            st.write(df)
+            if catbp !='Silahkan Pilih'and catdp !='Silahkan Pilih'and catdp !='Silahkan Pilih'and unitp !='Silahkan Pilih':
+                with open('norm.pkl', 'rb') as file:
+                    normalisasi=pickle.load(file)
+                norm_data = normalisasi.transform(df)
+                #st.write(df)
+                #st.write(norm_data)
+                with open('ridge_best_model.pkl', 'rb') as file:
+                    load_model = pickle.load(file)
+                prediction = load_model.predict(norm_data)
+                for i in prediction:
+                    st.write('kualitas air = ',i)
+            else:
+                st.write('Mohon Isi semua Kolom Pertanyaan')
 if selected=='About Us':
     st.write('kelompok 2 - Data Science SIB cycle 6 GreatEdu')
