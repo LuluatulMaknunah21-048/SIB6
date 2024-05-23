@@ -67,16 +67,31 @@ if selected=='Start Prediksi':
         if button: 
             #st.write(df_)
             if uploaded_file is not None:
+                #Drop kolom 'categoryA' sampai 'categoryF' di df_train
+                df_cleaned = df_file.drop(columns=['id','categoryA', 'categoryC','categoryE'])
+                kolom_kategorikal = ['categoryB', 'categoryD', 'categoryF', 'unit']
+                # Melakukan one-hot encoding untuk kolom kategori yang dipilih
+                df_encoded= pd.get_dummies(df_cleaned, columns=kolom_kategorikal, dummy_na=False, dtype=int)
+                
                 with open('norm.pkl', 'rb') as file:
                     normalisasi=pickle.load(file)
-                norm_data = normalisasi.transform(df_file)
+                norm_data = normalisasi.transform(df_encoded)
                 #st.write(df)
                 #st.write(norm_data)
                 with open('ridge_best_model.pkl', 'rb') as file:
                     load_model = pickle.load(file)
-                prediction = load_model.predict(norm_data)
-                for i in prediction:
-                    st.write('kualitas air = ',i)
+                # Prediksi kualitas air
+                predictions = load_model.predict(norm_data)
+                # Mengambil kolom 'id' dari dataframe asli
+                ids = df_file.index
+                # Membuat dataframe baru untuk hasil prediksi
+                df_pred = pd.DataFrame({'id': ids, 'result': predictions})
+                # Menggabungkan dataframe asli dengan hasil prediksi berdasarkan indeks
+                df_merged = pd.concat([df_file, df_pred], axis=1)
+                # Menampilkan dataframe hasil penggabungan
+                st.write('Dataframe setelah digabungkan:')
+                st.write(df_merged.head(5)
+
             else:
                 st.write('Mohon Uploaded File')
 
