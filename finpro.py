@@ -72,7 +72,6 @@ if selected=='Start Prediksi':
                 kolom_kategorikal = ['categoryB', 'categoryD', 'categoryF', 'unit']
                 # Melakukan one-hot encoding untuk kolom kategori yang dipilih
                 df_encoded= pd.get_dummies(df_cleaned, columns=kolom_kategorikal, dummy_na=False, dtype=int)
-                
                 with open('norm.pkl', 'rb') as file:
                     normalisasi=pickle.load(file)
                 norm_data = normalisasi.transform(df_encoded)
@@ -91,19 +90,9 @@ if selected=='Start Prediksi':
                 # Menampilkan dataframe hasil penggabungan
                 st.write('Dataframe setelah digabungkan:')
                 st.write(df_merged.head(5)
-
             else:
                 st.write('Mohon Uploaded File')
-
-        
-        
-        
-        
-        
-        
-        
-
-        
+                         
     if pilih=='Input':
         col1,col2,col3=st.columns(3)
         with col1:
