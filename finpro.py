@@ -79,9 +79,19 @@ if selected=='Start Prediksi':
                 # Membuat DataFrame dari hasil prediksi
                 df_pred = pd.DataFrame({'Predicted': predictions})
                 # Menambahkan kembali kolom 'id' ke DataFrame hasil prediksi
-                df_pred_id = pd.concat([id_column.reset_index(drop=True), df_pred], axis=1)
+                #df_pred_id = pd.concat([id_column.reset_index(drop=True), df_pred], axis=1)
                 # Tampilkan DataFrame yang telah digabungkan kembali
-                st.write(df_pred_id.head(5))
+                #st.write(df_pred_id.head(5))
+
+                # Gabungkan kembali kolom 'id' ke DataFrame asli
+                df_file_with_id = pd.concat([id_column.reset_index(drop=True), df_encoded], axis=1)
+                
+                # Gabungkan DataFrame asli dengan hasil prediksi secara vertikal
+                df_pred_new = pd.concat([df_file_with_id, df_pred], axis=0)
+                
+                # Tampilkan DataFrame yang telah digabungkan kembali
+                st.write(df_pred_new.head(5))
+
 
             else:
                 st.write('Mohon unggah file CSV terlebih dahulu')
