@@ -66,24 +66,19 @@ if selected=='Start Prediksi':
                 kolom_kategorikal = ['categoryB', 'categoryD', 'categoryF', 'unit']
                 # Melakukan one-hot encoding untuk kolom kategori yang dipilih
                 df_encoded= pd.get_dummies(df_cleaned, columns=kolom_kategorikal, dummy_na=False, dtype=int)
-                st.write(df_encoded)
+                #st.write(df_encoded)
                 with open('norm.pkl', 'rb') as file:
                     normalisasi = pickle.load(file)
                 norm_data = normalisasi.transform(df_encoded)
-                st.write(norm_data)
+                #st.write(norm_data)
                 # Prediksi kualitas air
                 with open('ridge_best_model.pkl', 'rb') as file:
                     load_model = pickle.load(file)
                 predictions = load_model.predict(norm_data)
-                # Mengambil kolom 'id' dari dataframe asli
-                ids = df_file.index
-                # Membuat dataframe baru untuk hasil prediksi
-                df_pred = pd.DataFrame({'id': ids, 'result': predictions})
-                # Menggabungkan dataframe asli dengan hasil prediksi berdasarkan indeks
-                df_merged = pd.concat([df_file, df_pred], axis=1)
-                # Menampilkan dataframe hasil penggabungan
-                st.write('Dataframe setelah digabungkan:')
-                st.write(df_merged.head(5))
+                # Membuat DataFrame dari hasil prediksi
+                df_pred = pd.DataFrame({'Predicted': predictions})
+                st.write(df_pred)
+                
             else:
                 st.write('Mohon unggah file CSV terlebih dahulu')
 
