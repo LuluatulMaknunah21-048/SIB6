@@ -87,7 +87,7 @@ if selected=='Start Prediksi':
                 df_file_with_id = pd.concat([id_column.reset_index(drop=True), df_encoded], axis=1)
                 
                 # Gabungkan DataFrame asli dengan hasil prediksi secara vertikal
-                df_pred_new = pd.concat([df_file_with_id, df_pred], axis=0)
+                df_pred_new = pd.concat([df_file_with_id.reset_index(drop=True), df_pred], axis=0)
                 
                 # Tampilkan DataFrame yang telah digabungkan kembali
                 st.write(df_pred_new.head(5))
