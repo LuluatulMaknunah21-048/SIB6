@@ -82,7 +82,15 @@ if selected=='Start Prediksi':
                 df_pred_id = pd.concat([id_column.reset_index(drop=True), df_pred], axis=1)
                 # Tampilkan DataFrame yang telah digabungkan kembali
                 st.write(df_pred_id.head(5))
-
+                # Fungsi untuk mengunduh DataFrame sebagai file CSV
+                def download_csv(dataframe):
+                    csv = dataframe.to_csv(index=False)
+                    b64 = base64.b64encode(csv.encode()).decode()  # Encode to base64
+                    href = f'<a href="data:file/csv;base64,{b64}" download="predictions.csv">Download CSV</a>'
+                    return href
+                
+                # Tampilkan tombol unduh
+                st.markdown(download_csv(df_pred_id), unsafe_allow_html=True)
 
             else:
                 st.write('Mohon unggah file CSV terlebih dahulu')
