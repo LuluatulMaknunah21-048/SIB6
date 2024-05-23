@@ -61,6 +61,7 @@ if selected=='Start Prediksi':
                 kolom_kategorikal = ['categoryB', 'categoryD', 'categoryF', 'unit']
                 # Melakukan one-hot encoding untuk kolom kategori yang dipilih
                 df_encoded= pd.get_dummies(df_cleaned, columns=kolom_kategorikal, dummy_na=False, dtype=int)
+                st.write(df_encoded)
                 with open('norm.pkl', 'rb') as file:
                     normalisasi = pickle.load(file)
                 norm_data = normalisasi.fit_transform(df_encoded)
