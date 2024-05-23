@@ -77,6 +77,8 @@ if selected=='Start Prediksi':
                     normalisasi = pickle.load(file)
                 norm_data = normalisasi.transform(df_encoded)
                 # Prediksi kualitas air
+                with open('ridge_best_model.pkl', 'rb') as file:
+                    load_model = pickle.load(file)
                 predictions = load_model.predict(norm_data)
                 # Mengambil kolom 'id' dari dataframe asli
                 ids = df_file.index
