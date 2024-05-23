@@ -90,8 +90,7 @@ if selected=='Start Prediksi':
                 # Menampilkan dataframe hasil penggabungan
                 st.write('Dataframe setelah digabungkan:')
                 st.write(df_merged.head(5)
-            else:
-                st.write('Mohon Uploaded File')
+            
                          
     if pilih=='Input':
         col1,col2,col3=st.columns(3)
