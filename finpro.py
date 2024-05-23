@@ -12,16 +12,7 @@ st.markdown(
         background-image: linear-gradient(#800080,#800080);
         color: white;
     }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
-# Mengubah warna tombol
-st.markdown(
-    """
-    <style>
-    .stButton>button {
+    .sidebar .sidebar-content .stButton>button {
         background-color: #800080 !important;
         color: white;
     }
