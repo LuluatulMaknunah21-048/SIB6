@@ -35,9 +35,9 @@ if selected=='Start Prediksi':
         "font-size":"12px",
         "text-align":"center",
         "margin":"5px",
-        "--hover-color":"pink",},
+        "--hover-color":"#FF4B4B",},
     "nav-link-selected":{
-        "background-color":"#4bdcff"}
+        "background-color":"#FF4B4B"}
 
     })
     if pilih == 'File':
