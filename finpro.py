@@ -198,16 +198,16 @@ if selected=='Start Prediksi':
         df['featureC']=featureC
         df['featureD']=featureD
         df['featureE']=featureE
-        #df['featureF']=featureF
+        df['featureF']=featureF
         df['featureG']=featureG
-        #df['featureH']=featureH
+        df['featureH']=featureH
         df['featureI']=featureI
-        #df['compositionA']=compositionA
+        df['compositionA']=compositionA
         df['compositionB']=compositionB
         df['compositionC']=compositionC
         df['compositionD']=compositionD
         df['compositionE']=compositionE
-        #df['compositionF']=compositionF
+        df['compositionF']=compositionF
         df['compositionG']=compositionG
         df['compositionH']=compositionH
         df['compositionI']=compositionI
@@ -220,6 +220,7 @@ if selected=='Start Prediksi':
                     normalisasi=pickle.load(file)
                 norm_data = normalisasi.transform(df)
                 df_norm = pd.DataFrame(norm_data, columns=df.columns)
+                #fitur di hapus karna tidak memiliki korelasi
                 df_norm = df_norm.drop(columns=['featureF','featureH','compositionA','compositionF'])
                 #st.write(df)
                 #st.write(norm_data)
