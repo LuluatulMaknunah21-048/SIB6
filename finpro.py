@@ -214,14 +214,14 @@ if selected=='Start Prediksi':
         if button: 
             st.write(df)
             if catbp !='Silahkan Pilih'and catdp !='Silahkan Pilih'and catdp !='Silahkan Pilih'and unitp !='Silahkan Pilih':
-                with open('scal.pkl', 'rb') as file:
-                    normalisasi=pickle.load(file)
-                norm_data = normalisasi.transform(df)
+                #with open('scal.pkl', 'rb') as file:
+                    #normalisasi=pickle.load(file)
+                #norm_data = normalisasi.transform(df)
                 #st.write(df)
                 #st.write(norm_data)
                 with open('ridge_best_bgt.pkl', 'rb') as file:
                     load_model = pickle.load(file)
-                prediction = load_model.predict(norm_data)
+                prediction = load_model.predict(df)
                 for i in prediction:
                     st.write('kualitas air = ',i)
             else:
