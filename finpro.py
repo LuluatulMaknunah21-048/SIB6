@@ -72,7 +72,7 @@ if selected=='Start Prediksi':
                 with open('scal.pkl', 'rb') as file:
                     normalisasi = pickle.load(file)
                 norm_data = normalisasi.fit_transform(df_encoded)
-                df_norm = df_encoded.drop(columns=['featureF','featureH','compositionA','compositionF'])
+                df_norm = norm_data.drop(columns=['featureF','featureH','compositionA','compositionF'])
                 #st.write(norm_data)
                 # Prediksi kualitas air
                 with open('ridge_best_bgt.pkl', 'rb') as file:
