@@ -64,14 +64,16 @@ if selected=='Start Prediksi':
                 for col in numeric_columns:
                     df_file[col].fillna(df_file[col].mean(), inplace=True)
                 #Drop kolom 'categoryA' sampai 'categoryF' di df_file
-                df_cleaned = df_file.drop(columns=['id','categoryA', 'categoryC','categoryE','featureF','featureH','compositionA','compositionF'])
+                df_cleaned = df_file.drop(columns=['id','categoryA', 'categoryC','categoryE'])
                 kolom_kategorikal = ['categoryB', 'categoryD', 'categoryF', 'unit']
                 # Melakukan one-hot encoding untuk kolom kategori yang dipilih
                 df_encoded= pd.get_dummies(df_cleaned, columns=kolom_kategorikal, dummy_na=False, dtype=int)
                 #st.write(df_encoded)
+                df_norm = df_encoded.drop(columns=['featureF','featureH','compositionA','compositionF'])
                 with open('scal.pkl', 'rb') as file:
                     normalisasi = pickle.load(file)
-                norm_data = normalisasi.transform(df_encoded)
+                norm_data = normalisasi.transform(df_norm)
+                
                 #st.write(norm_data)
                 # Prediksi kualitas air
                 with open('ridge_best_bgt.pkl', 'rb') as file:
