@@ -69,16 +69,15 @@ if selected=='Start Prediksi':
                 # Melakukan one-hot encoding untuk kolom kategori yang dipilih
                 df_encoded= pd.get_dummies(df_cleaned, columns=kolom_kategorikal, dummy_na=False, dtype=int)
                 #st.write(df_encoded)
-                df_norm = df_encoded.drop(columns=['featureF','featureH','compositionA','compositionF'])
                 with open('scal.pkl', 'rb') as file:
                     normalisasi = pickle.load(file)
-                norm_data = normalisasi.transform(df_norm)
-                
+                norm_data = normalisasi.transform(df_encoded)
+                df_norm = df_encoded.drop(columns=['featureF','featureH','compositionA','compositionF'])
                 #st.write(norm_data)
                 # Prediksi kualitas air
                 with open('ridge_best_bgt.pkl', 'rb') as file:
                     load_model = pickle.load(file)
-                predictions = load_model.predict(norm_data)
+                predictions = load_model.predict(df_norm)
                 # Membuat DataFrame dari hasil prediksi
                 df_pred = pd.DataFrame({'Predicted': predictions})
                 # Menambahkan kembali kolom 'id' ke DataFrame hasil prediksi
