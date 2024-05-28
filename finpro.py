@@ -73,7 +73,7 @@ if selected=='Start Prediksi':
                     normalisasi = pickle.load(file)
                 norm_data = normalisasi.transform(df_encoded)
                 df_norm = pd.DataFrame(norm_data, columns=df_encoded.columns)
-                df_norm = norm_data.drop(columns=['featureF','featureH','compositionA','compositionF'])
+                df_norm = df_norm.drop(columns=['featureF','featureH','compositionA','compositionF'])
                 #st.write(norm_data)
                 # Prediksi kualitas air
                 with open('ridge_best_bgt.pkl', 'rb') as file:
