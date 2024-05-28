@@ -153,61 +153,61 @@ if selected=='Start Prediksi':
             if catfp =='2':
                 df['categoryF_catF_1']=1
 
-            unit=['Silahkan Pilih','0','1','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18']
-            unitp=st.selectbox('PILIH UNIT',unit)
-            if unitp == '0':
-                df['unit_unit_0']=1
-            if unitp == '1':
-                df['unit_unit_1']=1
-            if unitp == '2':
-                df['unit_unit_2']=1
-            if unitp == '3':
-                df['unit_unit_3']=1
-            if unitp == '4':
-                df['unit_unit_4']=1
-            if unitp == '5':
-                df['unit_unit_5']=1
-            if unitp == '6':
-                df['unit_unit_6']=1
-            if unitp == '7':
-                df['unit_unit_7']=1
-            if unitp == '8':
-                df['unit_unit_8']=1
-            if unitp == '9':
-                df['unit_unit_9']=1
-            if unitp == '10':
-                df['unit_unit_10']=1
-            if unitp == '11':
-                df['unit_unit_11']=1
-            if unitp == '12':
-                df['unit_unit_12']=1
-            if unitp == '13':
-                df['unit_unit_13']=1
-            if unitp == '14':
-                df['unit_unit_14']=1
-            if unitp == '15':
-                df['unit_unit_15']=1
-            if unitp == '16':
-                df['unit_unit_16']=1
-            if unitp == '17':
-                df['unit_unit_17']=1
-            if unitp == '18':
-                df['unit_unit_18']=1
+        unit=['Silahkan Pilih','0','1','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18']
+        unitp=st.selectbox('PILIH UNIT',unit)
+        if unitp == '0':
+            df['unit_unit_0']=1
+        if unitp == '1':
+            df['unit_unit_1']=1
+        if unitp == '2':
+            df['unit_unit_2']=1
+        if unitp == '3':
+            df['unit_unit_3']=1
+        if unitp == '4':
+            df['unit_unit_4']=1
+        if unitp == '5':
+            df['unit_unit_5']=1
+        if unitp == '6':
+            df['unit_unit_6']=1
+        if unitp == '7':
+            df['unit_unit_7']=1
+        if unitp == '8':
+            df['unit_unit_8']=1
+        if unitp == '9':
+            df['unit_unit_9']=1
+        if unitp == '10':
+            df['unit_unit_10']=1
+        if unitp == '11':
+            df['unit_unit_11']=1
+        if unitp == '12':
+            df['unit_unit_12']=1
+        if unitp == '13':
+            df['unit_unit_13']=1
+        if unitp == '14':
+            df['unit_unit_14']=1
+        if unitp == '15':
+            df['unit_unit_15']=1
+        if unitp == '16':
+            df['unit_unit_16']=1
+        if unitp == '17':
+            df['unit_unit_17']=1
+        if unitp == '18':
+            df['unit_unit_18']=1
         df['featureA']=featureA
         df['featureB']=featureB
         df['featureC']=featureC
         df['featureD']=featureD
         df['featureE']=featureE
-        df['featureF']=featureF
+        #df['featureF']=featureF
         df['featureG']=featureG
-        df['featureH']=featureH
+        #df['featureH']=featureH
         df['featureI']=featureI
-        df['compositionA']=compositionA
+        #df['compositionA']=compositionA
         df['compositionB']=compositionB
         df['compositionC']=compositionC
         df['compositionD']=compositionD
         df['compositionE']=compositionE
-        df['compositionF']=compositionF
+        #df['compositionF']=compositionF
         df['compositionG']=compositionG
         df['compositionH']=compositionH
         df['compositionI']=compositionI
