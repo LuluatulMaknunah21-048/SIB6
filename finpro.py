@@ -94,8 +94,8 @@ if selected=='Start Prediksi':
                          
     if pilih=='Input':
         kolom = [
-'featureA', 'featureB', 'featureC', 'featureD', 'featureE', 'featureG', 'featureI',
- 'compositionB', 'compositionC', 'compositionD', 'compositionE', 'compositionG',
+'featureA', 'featureB', 'featureC', 'featureD', 'featureE', 'featureF', 'featureG', 'featureH', 'featureI',
+'compositionA', 'compositionB', 'compositionC', 'compositionD', 'compositionE', 'compositionF', 'compositionG',
 'compositionH', 'compositionI', 'compositionJ',
 'categoryB_catB_0', 'categoryB_catB_1',
 'categoryD_catD_0', 'categoryD_catD_1', 'categoryD_catD_2',
@@ -216,14 +216,16 @@ if selected=='Start Prediksi':
         if button: 
             st.write(df)
             if catbp !='Silahkan Pilih'and catdp !='Silahkan Pilih'and catdp !='Silahkan Pilih'and unitp !='Silahkan Pilih':
-                #with open('scal.pkl', 'rb') as file:
-                    #normalisasi=pickle.load(file)
-                #norm_data = normalisasi.transform(df)
+                with open('scal.pkl', 'rb') as file:
+                    normalisasi=pickle.load(file)
+                norm_data = normalisasi.transform(df)
+                df_norm = pd.DataFrame(norm_data, columns=df.columns)
+                df_norm = df_norm.drop(columns=['featureF','featureH','compositionA','compositionF'])
                 #st.write(df)
                 #st.write(norm_data)
                 with open('ridge_best_bgt.pkl', 'rb') as file:
                     load_model = pickle.load(file)
-                prediction = load_model.predict(df)
+                prediction = load_model.predict(df_norm)
                 for i in prediction:
                     st.write('kualitas air = ',i)
             else:
