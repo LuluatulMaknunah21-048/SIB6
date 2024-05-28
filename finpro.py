@@ -92,8 +92,8 @@ if selected=='Start Prediksi':
                          
     if pilih=='Input':
         kolom = [
-'featureA', 'featureB', 'featureC', 'featureD', 'featureE', 'featureF', 'featureG', 'featureH', 'featureI',
-'compositionA', 'compositionB', 'compositionC', 'compositionD', 'compositionE', 'compositionF', 'compositionG',
+'featureA', 'featureB', 'featureC', 'featureD', 'featureE', 'featureG', 'featureI',
+ 'compositionB', 'compositionC', 'compositionD', 'compositionE', 'compositionG',
 'compositionH', 'compositionI', 'compositionJ',
 'categoryB_catB_0', 'categoryB_catB_1',
 'categoryD_catD_0', 'categoryD_catD_1', 'categoryD_catD_2',
@@ -196,16 +196,16 @@ if selected=='Start Prediksi':
         df['featureC']=featureC
         df['featureD']=featureD
         df['featureE']=featureE
-        df['featureF']=featureF
+        #df['featureF']=featureF
         df['featureG']=featureG
-        df['featureH']=featureH
+        #df['featureH']=featureH
         df['featureI']=featureI
-        df['compositionA']=compositionA
+        #df['compositionA']=compositionA
         df['compositionB']=compositionB
         df['compositionC']=compositionC
         df['compositionD']=compositionD
         df['compositionE']=compositionE
-        df['compositionF']=compositionF
+        #df['compositionF']=compositionF
         df['compositionG']=compositionG
         df['compositionH']=compositionH
         df['compositionI']=compositionI
