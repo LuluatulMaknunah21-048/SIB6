@@ -64,17 +64,17 @@ if selected=='Start Prediksi':
                 for col in numeric_columns:
                     df_file[col].fillna(df_file[col].mean(), inplace=True)
                 #Drop kolom 'categoryA' sampai 'categoryF' di df_file
-                df_cleaned = df_file.drop(columns=['id','categoryA', 'categoryC','categoryE'])
+                df_cleaned = df_file.drop(columns=['id','categoryA', 'categoryC','categoryE','featureF','featureH','compositionA','compositionF'])
                 kolom_kategorikal = ['categoryB', 'categoryD', 'categoryF', 'unit']
                 # Melakukan one-hot encoding untuk kolom kategori yang dipilih
                 df_encoded= pd.get_dummies(df_cleaned, columns=kolom_kategorikal, dummy_na=False, dtype=int)
                 #st.write(df_encoded)
-                with open('norm.pkl', 'rb') as file:
+                with open('scal.pkl', 'rb') as file:
                     normalisasi = pickle.load(file)
                 norm_data = normalisasi.transform(df_encoded)
                 #st.write(norm_data)
                 # Prediksi kualitas air
-                with open('ridge_best_model.pkl', 'rb') as file:
+                with open('ridge_best_bgt.pkl', 'rb') as file:
                     load_model = pickle.load(file)
                 predictions = load_model.predict(norm_data)
                 # Membuat DataFrame dari hasil prediksi
@@ -110,17 +110,17 @@ if selected=='Start Prediksi':
             featureC = st.number_input('featureC')
             featureD = st.number_input('featureD')
             featureE = st.number_input('featureE')
-            featureF = st.number_input('featureF')
+            #featureF = st.number_input('featureF')
             featureG = st.number_input('featureG')
-            featureH = st.number_input('featureH')
+            #featureH = st.number_input('featureH')
         with col2:
             featureI = st.number_input('featureI')
-            compositionA = st.number_input('compositionA')
+            #compositionA = st.number_input('compositionA')
             compositionB = st.number_input('compositionB')
             compositionC = st.number_input('compositionC')
             compositionD = st.number_input('compositionD')
             compositionE = st.number_input('compositionE')
-            compositionF = st.number_input('compositionF')
+            #compositionF = st.number_input('compositionF')
             compositionG = st.number_input('compositionG')
         with col3:
             compositionH = st.number_input('compositionH')
@@ -214,12 +214,12 @@ if selected=='Start Prediksi':
         if button: 
             st.write(df)
             if catbp !='Silahkan Pilih'and catdp !='Silahkan Pilih'and catdp !='Silahkan Pilih'and unitp !='Silahkan Pilih':
-                with open('norm.pkl', 'rb') as file:
+                with open('scal.pkl', 'rb') as file:
                     normalisasi=pickle.load(file)
                 norm_data = normalisasi.transform(df)
                 #st.write(df)
                 #st.write(norm_data)
-                with open('ridge_best_model.pkl', 'rb') as file:
+                with open('ridge_best_bgt.pkl', 'rb') as file:
                     load_model = pickle.load(file)
                 prediction = load_model.predict(norm_data)
                 for i in prediction:
